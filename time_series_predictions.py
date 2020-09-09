@@ -103,5 +103,19 @@ plt.xticks(rotation='90', fontweight='bold');plt.yticks(fontweight='bold')
 
 plt.axvline(dt.datetime(2021,4,9), ls = ':')
 plt.axvline(dt.datetime(2020,9,14), ls = ':')
- 
+plt.title('Predicted Cases')
 plt.savefig('Covid_predictions.png', bbox_inches='tight')
+
+#%% currnet trend
+
+plt.rcParams.update({'font.size':12})
+plt.plot(ind['ds'], ind['y'], 'b-', label = 'India')
+plt.plot(us['ds'], us['y'], 'r-', label = 'USA')
+plt.plot(bra['ds'], bra['y'], 'g-', label = 'Brazil')
+
+plt.legend(); plt.xlabel('Date', fontsize='13'); plt.ylabel('Cases (in 10 million)', fontsize='13')
+plt.xticks(rotation='90', fontweight='bold');plt.yticks(fontweight='bold')
+plt.ylim(0,20000000)
+#plt.xlim(forecast.Date.min(),forecast.Date.max())
+plt.title('Actual Cases')
+plt.savefig('Covid_actual.png', bbox_inches='tight')
